@@ -15,7 +15,7 @@
 - Theme the grid
 - Set scale limits
   
-![AnotherTest screenshot 3](https://github.com/benjaminRoberts01375/SwiftUI-Infinite-Grid/assets/61424934/c5ad8633-5496-40fc-8de9-b95877ab2cd0)
+![Gif Repair](https://github.com/benjaminRoberts01375/SwiftUI-Infinite-Grid/assets/61424934/d31b740e-eee4-47b9-b1ac-63c77ad355b7)
 
 # Installation
 The Swift Package Manager is the current installation method for the infinite grid.
