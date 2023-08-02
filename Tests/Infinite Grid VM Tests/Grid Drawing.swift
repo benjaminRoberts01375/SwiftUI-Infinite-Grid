@@ -88,7 +88,7 @@ extension InfiniteGridVMTests {
     func testForceZeroScale() {
         var translation: CGPoint = .zero
         var interactionPoint: CGPoint = .zero
-        let gridObject = InfiniteCanvasVM(
+        let gridObject = InfiniteGridVM(
             baseScale: 1,
             smallestAllowedLineGap: 1,
             largestAllowedLineGap: 100000,
@@ -105,7 +105,7 @@ extension InfiniteGridVMTests {
     func testForceZeroTranslation() {
         var scale: CGFloat = 1
         var interactionPoint: CGPoint = CGPoint(x: defaultScreenSize.width / 2, y: defaultScreenSize.height / 2)
-        let gridObject = InfiniteCanvasVM(
+        let gridObject = InfiniteGridVM(
             baseScale: 1,
             smallestAllowedLineGap: 1,
             largestAllowedLineGap: 100000,

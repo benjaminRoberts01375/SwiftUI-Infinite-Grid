@@ -10,7 +10,7 @@ import XCTest
 
 @available(macOS 14.0, *)
 final class InfiniteGridVMTests: XCTestCase {
-    public var defaultGridObject: InfiniteCanvasVM!
+    public var defaultGridObject: InfiniteGridVM!
     var translation: CGPoint!
     var scale: CGFloat!
     var interactionPoint: CGPoint!
@@ -27,7 +27,7 @@ final class InfiniteGridVMTests: XCTestCase {
         translation = .zero
         scale = 1
         interactionPoint = .zero
-        defaultGridObject = InfiniteCanvasVM(
+        defaultGridObject = InfiniteGridVM(
             baseScale: 1,
             smallestAllowedLineGap: 1,
             largestAllowedLineGap: 100000,
