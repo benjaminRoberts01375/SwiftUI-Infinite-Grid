@@ -45,7 +45,7 @@ public struct GridObjectM: Identifiable {
     ///   - content: View to display.
     ///   - xPos: Binding for the X position on a grid.
     ///   - yPos: Binding for the Y position on a grid.
-    init(content: any View, xPos: Binding<CGFloat>, yPos: Binding<CGFloat>) {
+    public init(content: any View, xPos: Binding<CGFloat>, yPos: Binding<CGFloat>) {
         self.content = AnyView(content)
         self._xPos = xPos
         self._yPos = yPos
@@ -56,7 +56,7 @@ public struct GridObjectM: Identifiable {
     ///   - content: View to display.
     ///   - xPos: X position on a grid.
     ///   - yPos: Y position on a grid.
-    init(content: any View, xPos: CGFloat, yPos: CGFloat) {
+    public init(content: any View, xPos: CGFloat, yPos: CGFloat) {
         self.content = AnyView(content)
         self._xPos = .constant(xPos)
         self._yPos = .constant(yPos)

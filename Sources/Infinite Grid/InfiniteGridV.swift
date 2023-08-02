@@ -62,7 +62,7 @@ public struct InfiniteGridV: View {
     ///   - scale: Binding for the scale of the grid. Default value prevents any scaling.
     ///   - interactionPoint: Binding for the scale interaction point. Default value is at the zero point.
     ///   - views: An array of views to be rendered on the grid.
-    init(
+    public init(
         gridShading: GraphicsContext.Shading = .color(.black),
         lineThickness: CGFloat = 2,
         smallestAllowedLineGap: CGFloat = 10,
