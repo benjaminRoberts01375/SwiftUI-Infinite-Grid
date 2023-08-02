@@ -14,6 +14,7 @@
 - Pin views for translation. SwiftUI doesn't provide a method to scale views without loss of resolution.
 - Theme the grid
 - Set scale limits
+  
 ![AnotherTest screenshot 3](https://github.com/benjaminRoberts01375/SwiftUI-Infinite-Grid/assets/61424934/c5ad8633-5496-40fc-8de9-b95877ab2cd0)
 
 # Installation
