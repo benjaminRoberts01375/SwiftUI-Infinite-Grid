@@ -4,20 +4,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "Infinite Grid",
+    name: "InfiniteGrid",
+    platforms: [.iOS(.v17), .macOS(.v14), .tvOS(.v17)],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Infinite Grid",
-            targets: ["Infinite Grid"]),
+            name: "InfiniteGrid",
+            targets: ["InfiniteGrid"]),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Infinite Grid"),
+            name: "InfiniteGrid",
+            dependencies: []),
         .testTarget(
-            name: "Infinite GridTests",
-            dependencies: ["Infinite Grid"]),
+            name: "InfiniteGridTests",
+            dependencies: ["InfiniteGrid"]),
     ]
 )
