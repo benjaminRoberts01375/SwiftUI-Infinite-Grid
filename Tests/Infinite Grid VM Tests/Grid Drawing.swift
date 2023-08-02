@@ -6,7 +6,7 @@
 
 import SwiftUI
 import XCTest
-@testable import Infinite_Grid
+@testable import InfiniteGrid
 
 @available(macOS 14.0, *)
 extension InfiniteGridVMTests {
