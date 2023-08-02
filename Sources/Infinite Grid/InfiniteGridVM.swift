@@ -30,7 +30,7 @@ import SwiftUI
 
 @available(iOS 17.0, macOS 14.0, tvOS 17.0, *)
 /// Initializer for the InfiniteCanvas view model, which handles translation, scaling, screen size, and creating the path for the grid.
-final class InfiniteCanvasVM: ObservableObject {
+public final class InfiniteCanvasVM: ObservableObject {
     /// The perceived scale of the grid.
     @Binding private(set) var gScale: CGFloat
     /// Position to perform scale calculations from. Typically at the position of a `magnifyGesture()`.

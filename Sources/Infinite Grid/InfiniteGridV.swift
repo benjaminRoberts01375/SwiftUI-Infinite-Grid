@@ -31,7 +31,7 @@ import SwiftUI
 
 @available(iOS 17.0, macOS 14.0, tvOS 17.0, *)
 /// A pre-fab view for the Infinite Canvas that allows for a grid to be drawn to the screen.
-struct InfiniteGridV: View {
+public struct InfiniteGridV: View {
     /// View model for the infinite canvas.
     @ObservedObject private var controller: InfiniteCanvasVM
     /// The net translation during a drag gesture.

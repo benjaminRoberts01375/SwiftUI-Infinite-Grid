@@ -30,9 +30,9 @@ import SwiftUI
 
 @available(iOS 17.0, macOS 14.0, tvOS 17.0, *)
 /// Object data for positioning view on a grid.
-struct GridObjectM: Identifiable {
+public struct GridObjectM: Identifiable {
     /// Conformance to identifiable.
-    let id = UUID()
+    public let id = UUID()
     /// Stored view to display.
     var content: AnyView
     /// X position for the content on a grid in grid-space.
