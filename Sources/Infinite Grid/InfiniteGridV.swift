@@ -125,7 +125,7 @@ public struct InfiniteGridV: View {
             }
     }
     
-    var body: some View {
+    public var body: some View {
         ZStack(alignment: .topLeading) {
 #if os(macOS)
             Color.clear // Zoom via scrollwheel
