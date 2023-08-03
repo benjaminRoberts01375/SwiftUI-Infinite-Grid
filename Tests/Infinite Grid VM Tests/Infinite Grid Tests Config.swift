@@ -1,5 +1,5 @@
 // Created on 5/24/23 by Ben Roberts
-// Created for Noodle
+// Created for the infinite grid library
 //
 // Swift 5.0
 //

@@ -1,5 +1,5 @@
 // Created on 8/1/23 by Ben Roberts
-// Created for the infinite canvas library
+// Created for the infinite grid library
 //
 // Swift 5.0
 //
