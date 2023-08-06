@@ -140,6 +140,10 @@ public struct InfiniteGrid: View {
                     controller.updateScale(newScale: 1.1, sInteractionPoint: mousePos)
                     return .handled
                 }
+                .onKeyPress(KeyEquivalent("+")) { // Numpad plus button
+                    controller.updateScale(newScale: 1.1, sInteractionPoint: mousePos)
+                    return .handled
+                }
                 .onKeyPress(KeyEquivalent("-")) { // Minus button
                     controller.updateScale(newScale: 0.9, sInteractionPoint: mousePos)
                     return .handled
