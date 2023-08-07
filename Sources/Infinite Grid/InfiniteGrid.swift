@@ -181,7 +181,7 @@ public struct InfiniteGrid: View {
             }
         }
         .gesture(gridScale)
-        
+        .clipped()
     }
     
 #if os(macOS)
