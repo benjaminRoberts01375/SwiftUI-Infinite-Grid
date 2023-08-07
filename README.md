@@ -28,7 +28,11 @@ The Swift Package Manager is the current installation method for the infinite gr
 
 # Usage
 Once installed, the grid works as most other views do, just with lots of optional parameters.
-
+### Caution:
+- **Gestures**
+    - When using gestures, you may have to adjust your coordinate space to global. Ex: `DragGesture(coordinateSpace: .global)`
+- **"My views are sliding! Oh no!"**
+    - This is fortunately an easy fix. Your view may not be factoring in the scale of the grid. Multiplying the size of your view by the scale of the grid should fix the issue.
 
 ### Optional parameters:
 - **Grid shading**
