@@ -16,6 +16,7 @@
 - Set scale limits
   
 ![Gif Repair](https://github.com/benjaminRoberts01375/SwiftUI-Infinite-Grid/assets/61424934/d31b740e-eee4-47b9-b1ac-63c77ad355b7)
+![Gestures!](https://github.com/benjaminRoberts01375/SwiftUI-Infinite-Grid/assets/61424934/d08739f2-4023-438a-8b40-91cd02166a1b)
 
 # Installation
 The Swift Package Manager is the current installation method for the infinite grid.
