@@ -36,21 +36,9 @@ public struct GridObjectM: Identifiable {
     /// Stored view to display.
     var content: AnyView
     /// X position for the content on a grid in grid-space.
-    @Binding var xPos: CGFloat
+    var xPos: CGFloat
     /// Y position for the content on a grid in grid-space.
-    @Binding var yPos: CGFloat
-    
-    /// Object data for positioning a view on a grid with binding controls.
-    /// - Parameters:
-    ///   - content: View to display.
-    ///   - xPos: Binding for the X position on a grid.
-    ///   - yPos: Binding for the Y position on a grid.
-    public init(content: any View, xPos: Binding<CGFloat>, yPos: Binding<CGFloat>) {
-        self.content = AnyView(content)
-        self._xPos = xPos
-        self._yPos = yPos
-        self.id = Mirror(reflecting: content).description // View hierarchy description
-    }
+    var yPos: CGFloat
     
     /// Object data for positioning a view on a grid with binding controls.
     /// - Parameters:
@@ -58,6 +46,9 @@ public struct GridObjectM: Identifiable {
     ///   - xPos: X position on a grid.
     ///   - yPos: Y position on a grid.
     public init(content: any View, xPos: CGFloat, yPos: CGFloat) {
-        self.init(content: content, xPos: .constant(xPos), yPos: .constant(yPos))
+        self.content = AnyView(content)
+        self.xPos = xPos
+        self.yPos = yPos
+        self.id = Mirror(reflecting: content).description // View hierarchy description
     }
 }
