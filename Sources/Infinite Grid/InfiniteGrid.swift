@@ -180,7 +180,6 @@ public struct InfiniteGrid: View {
                     )
             }
         }
-//        .ignoresSafeArea()
         .gesture(gridScale)
         
     }
