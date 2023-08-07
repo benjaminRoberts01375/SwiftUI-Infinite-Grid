@@ -32,7 +32,7 @@ import SwiftUI
 /// Object data for positioning view on a grid.
 public struct GridObjectM: Identifiable {
     /// Conformance to identifiable.
-    public let id = UUID()
+    public var id: String
     /// Stored view to display.
     var content: AnyView
     /// X position for the content on a grid in grid-space.
@@ -49,6 +49,7 @@ public struct GridObjectM: Identifiable {
         self.content = AnyView(content)
         self._xPos = xPos
         self._yPos = yPos
+        self.id = Mirror(reflecting: content).description // View hierarchy description
     }
     
     /// Object data for positioning a view on a grid with binding controls.
@@ -60,5 +61,6 @@ public struct GridObjectM: Identifiable {
         self.content = AnyView(content)
         self._xPos = .constant(xPos)
         self._yPos = .constant(yPos)
+        self.id = Mirror(reflecting: content).description // View hierarchy description
     }
 }
