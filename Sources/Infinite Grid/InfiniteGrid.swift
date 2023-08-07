@@ -136,6 +136,7 @@ public struct InfiniteGrid: View {
 #endif
             Color.clear // Zoom via keyboard
                 .focusable()
+                .focusEffectDisabled()
                 .onKeyPress(KeyEquivalent("=")) { // Plus button
                     controller.updateScale(newScale: 1.1, sInteractionPoint: mousePos)
                     return .handled
