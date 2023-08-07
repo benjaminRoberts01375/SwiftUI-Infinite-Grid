@@ -58,9 +58,6 @@ public struct GridObjectM: Identifiable {
     ///   - xPos: X position on a grid.
     ///   - yPos: Y position on a grid.
     public init(content: any View, xPos: CGFloat, yPos: CGFloat) {
-        self.content = AnyView(content)
-        self._xPos = .constant(xPos)
-        self._yPos = .constant(yPos)
-        self.id = Mirror(reflecting: content).description // View hierarchy description
+        self.init(content: content, xPos: .constant(xPos), yPos: .constant(yPos))
     }
 }
