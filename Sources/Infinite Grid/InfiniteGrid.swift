@@ -43,7 +43,7 @@ public struct InfiniteGrid: View {
     /// Thickness of the grid lines.
     private let lineThickness: CGFloat
     /// Views to display on grid.
-    private let views: [GridObjectM]
+    private let views: [any GridObject]
     /// Cancellable for updating grid on scrollwheel change.
     @State var scrollWheelCancellable = Set<AnyCancellable>() // Cancel onDisappear
     /// Latest hash for scrollwheel event to prevent redundant firings.
@@ -71,7 +71,7 @@ public struct InfiniteGrid: View {
         translation: Binding<CGPoint> = .constant(.zero),
         scale: Binding<CGFloat> = .constant(1),
         interactionPoint: Binding<CGPoint> = .constant(.zero),
-        views: [GridObjectM] = []
+        views: [any GridObject] = []
     ) {
         self._controller = ObservedObject(
             initialValue:
@@ -171,12 +171,12 @@ public struct InfiniteGrid: View {
             }
             .gesture(gridDrag)
             ForEach(views, id: \.id) { gridObject in // Views to show on grid
-                gridObject.content
+                AnyView(gridObject.content)
                     .fixedSize()
                     .position(
                         CGPoint(
-                            x: (gridObject.xPos + controller.sTranslation.x) * controller.gScale,
-                            y: (gridObject.yPos + controller.sTranslation.y) * controller.gScale
+                            x: (gridObject.pos.x + controller.sTranslation.x) * controller.gScale,
+                            y: (gridObject.pos.y + controller.sTranslation.y) * controller.gScale
                         )
                     )
             }
