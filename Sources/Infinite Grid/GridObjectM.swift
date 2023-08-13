@@ -30,11 +30,10 @@ import SwiftUI
 
 @available(iOS 17.0, macOS 14.0, tvOS 17.0, *)
 /// Object data for positioning view on a grid.
-public struct GridObjectM: Identifiable {
-    /// Conformance to identifiable.
-    public var id: String
+public struct GridObjectM: GridObject {
     /// Stored view to display.
-    var content: AnyView
+    public var content: any View
+    /// Position for the content on a grid in grid-space.
     public var pos: CGPoint
     
     /// Object data for positioning a view on a grid with binding controls.
@@ -64,7 +63,6 @@ public struct GridObjectM: Identifiable {
     @available(tvOS, deprecated: 100000.0)
     @available(macCatalyst, deprecated: 100000.0)
     public init(content: any View, xPos: CGFloat, yPos: CGFloat) {
-        self.id = Mirror(reflecting: content).description // View hierarchy description
         self.init(content: content, pos: CGPoint(x: xPos, y: yPos))
     }
 }
