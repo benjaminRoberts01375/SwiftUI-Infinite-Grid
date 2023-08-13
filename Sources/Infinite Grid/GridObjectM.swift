@@ -35,20 +35,36 @@ public struct GridObjectM: Identifiable {
     public var id: String
     /// Stored view to display.
     var content: AnyView
-    /// X position for the content on a grid in grid-space.
-    var xPos: CGFloat
-    /// Y position for the content on a grid in grid-space.
-    var yPos: CGFloat
+    public var pos: CGPoint
     
     /// Object data for positioning a view on a grid with binding controls.
     /// - Parameters:
     ///   - content: View to display.
-    ///   - xPos: X position on a grid.
-    ///   - yPos: Y position on a grid.
+    ///   - pos: Position on a grid.
+    public init(content: any View, pos: CGPoint) {
+        self.content = content
+        self.pos = pos
+    }
+    
+    /// Object data for positioning a view on a grid with binding controls.
+    /// - Parameters:
+    ///   - content: View to display.
+    ///   - pos: Position on a grid.
+    public init(content: any View, pos: CGSize) {
+        self.init(content: content, pos: CGPoint(x: pos.width, y: pos.height))
+    }
+    
+    /// A deprecated init for creating a grid object with a specific x and y coordinate.
+    /// - Parameters:
+    ///   - content: Content
+    ///   - xPos: X Position on a grid.
+    ///   - yPos: Y Position on a grid.
+    @available(iOS, deprecated: 100000.0)
+    @available(macOS, deprecated: 100000.0)
+    @available(tvOS, deprecated: 100000.0)
+    @available(macCatalyst, deprecated: 100000.0)
     public init(content: any View, xPos: CGFloat, yPos: CGFloat) {
-        self.content = AnyView(content)
-        self.xPos = xPos
-        self.yPos = yPos
         self.id = Mirror(reflecting: content).description // View hierarchy description
+        self.init(content: content, pos: CGPoint(x: xPos, y: yPos))
     }
 }
