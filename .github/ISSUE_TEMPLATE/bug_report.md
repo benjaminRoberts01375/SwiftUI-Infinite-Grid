@@ -1,8 +1,8 @@
 ---
 name: Bug report
 about: Something went wrong or blew up. It happens :/
-title: "[Bug]"
-labels: ''
+title: "[Bug] "
+labels: 'bug'
 assignees: benjaminRoberts01375
 
 ---
