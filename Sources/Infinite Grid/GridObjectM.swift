@@ -38,8 +38,44 @@ public struct GridObjectM: GridObject {
     
     /// Object data for positioning a view on a grid with binding controls.
     /// - Parameters:
+    ///   - pos: Position on a grid.
+    ///   - content: View to display.
+    public init(pos: CGPoint, _ content: any View) {
+        self.content = content
+        self.pos = pos
+    }
+    
+    /// Object data for positioning a view on a grid with binding controls.
+    /// - Parameters:
+    ///   - pos: Position on a grid.
+    ///   - content: View to display.
+    public init(pos: CGSize, _ content: any View) {
+        self.init(pos: CGPoint(x: pos.width, y: pos.height), content)
+    }
+    
+    /// Object data for positioning a view on a grid with binding controls.
+    /// - Parameters:
+    ///   - pos: Position on a grid.
+    ///   - content: View to display.
+    public init(pos: CGPoint, content: () -> any View) {
+        self.init(content: content(), pos: pos)
+    }
+    
+    /// Object data for positioning a view on a grid with binding controls.
+    /// - Parameters:
+    ///   - pos: Position on a grid.
+    ///   - content: View to display.
+    public init(pos: CGSize, content: () -> any View) {
+        self.init(content: content(), pos: CGPoint(x: pos.width, y: pos.height))
+    }
+
+    /// Object data for positioning a view on a grid with binding controls.
+    /// - Parameters:
     ///   - content: View to display.
     ///   - pos: Position on a grid.
+    @available(iOS, deprecated: 100000.0)
+    @available(macOS, deprecated: 100000.0)
+    @available(tvOS, deprecated: 100000.0)
     public init(content: any View, pos: CGPoint) {
         self.content = content
         self.pos = pos
@@ -49,24 +85,11 @@ public struct GridObjectM: GridObject {
     /// - Parameters:
     ///   - content: View to display.
     ///   - pos: Position on a grid.
+    @available(iOS, deprecated: 100000.0)
+    @available(macOS, deprecated: 100000.0)
+    @available(tvOS, deprecated: 100000.0)
     public init(content: any View, pos: CGSize) {
         self.init(content: content, pos: CGPoint(x: pos.width, y: pos.height))
-    }
-    
-    /// Object data for positioning a view on a grid with binding controls.
-    /// - Parameters:
-    ///   - content: View to display.
-    ///   - pos: Position on a grid.
-    public init(content: () -> any View, pos: CGPoint) {
-        self.init(content: content(), pos: pos)
-    }
-    
-    /// Object data for positioning a view on a grid with binding controls.
-    /// - Parameters:
-    ///   - content: View to display.
-    ///   - pos: Position on a grid.
-    public init(content: () -> any View, pos: CGSize) {
-        self.init(content: content(), pos: CGPoint(x: pos.width, y: pos.height))
     }
     
     /// A deprecated init for creating a grid object with a specific x and y coordinate.
