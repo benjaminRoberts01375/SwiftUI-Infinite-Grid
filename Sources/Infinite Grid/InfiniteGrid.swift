@@ -170,7 +170,7 @@ public struct InfiniteGrid: View {
                 context.stroke(controller.drawGrid(), with: gridShading, lineWidth: lineThickness)
             }
             .gesture(gridDrag)
-            ForEach(views, id: \.id) { gridObject in // Views to show on grid
+            ForEach(Array(zip(views.indices, views)), id: \.0) { _, gridObject in // Views to show on grid
                 AnyView(gridObject.content)
                     .fixedSize()
                     .position(
