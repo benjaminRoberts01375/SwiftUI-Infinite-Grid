@@ -53,6 +53,22 @@ public struct GridObjectM: GridObject {
         self.init(content: content, pos: CGPoint(x: pos.width, y: pos.height))
     }
     
+    /// Object data for positioning a view on a grid with binding controls.
+    /// - Parameters:
+    ///   - content: View to display.
+    ///   - pos: Position on a grid.
+    public init(content: () -> any View, pos: CGPoint) {
+        self.init(content: content(), pos: pos)
+    }
+    
+    /// Object data for positioning a view on a grid with binding controls.
+    /// - Parameters:
+    ///   - content: View to display.
+    ///   - pos: Position on a grid.
+    public init(content: () -> any View, pos: CGSize) {
+        self.init(content: content(), pos: CGPoint(x: pos.width, y: pos.height))
+    }
+    
     /// A deprecated init for creating a grid object with a specific x and y coordinate.
     /// - Parameters:
     ///   - content: Content
