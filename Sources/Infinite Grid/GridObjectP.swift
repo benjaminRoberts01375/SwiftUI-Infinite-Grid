@@ -29,19 +29,9 @@
 import SwiftUI
 
 /// A generic protocol for creating objects to be plotted on a grid
-public protocol GridObject: Identifiable {
+public protocol GridObject {
     /// Position of the grid object.
     var pos: CGPoint { get set }
     // The view to display on screen
     var content: any View { get }
-}
-
-/// An extension to the GridObject protocol allowing for the use of a unique identifier.
-public extension GridObject {
-    /// The stable identity of the entity associated with this instance.
-    var id: String {
-        get {
-            return Mirror(reflecting: content).description
-        }
-    }
 }
