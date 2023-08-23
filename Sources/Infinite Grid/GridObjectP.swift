@@ -29,9 +29,7 @@
 import SwiftUI
 
 /// A generic protocol for creating objects to be plotted on a grid
-public protocol GridObject {
+public protocol GridObject: View {
     /// Position of the grid object.
     var pos: CGPoint { get set }
-    // The view to display on screen
-    var content: any View { get }
 }

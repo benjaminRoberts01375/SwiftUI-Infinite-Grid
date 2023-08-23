@@ -171,7 +171,7 @@ public struct InfiniteGrid: View {
             }
             .gesture(gridDrag)
             ForEach(Array(zip(views.indices, views)), id: \.0) { _, gridObject in // Views to show on grid
-                AnyView(gridObject.content)
+                AnyView(gridObject)
                     .fixedSize()
                     .position(
                         CGPoint(
