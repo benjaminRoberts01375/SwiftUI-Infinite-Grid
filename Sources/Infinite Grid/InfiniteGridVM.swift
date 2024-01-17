@@ -30,23 +30,24 @@ import SwiftUI
 
 @available(iOS 17.0, macOS 14.0, tvOS 17.0, *)
 /// Initializer for the InfiniteCanvas view model, which handles translation, scaling, screen size, and creating the path for the grid.
-public final class InfiniteGridVM: ObservableObject {
+@Observable
+public final class InfiniteGridVM {
     /// The perceived scale of the grid.
-    @Binding private(set) var gScale: CGFloat
+    private(set) var gScale: CGFloat
     /// Position to perform scale calculations from. Typically at the position of a `magnifyGesture()`.
-    @Binding private(set) var sInteractionPoint: CGPoint
+    private(set) var sInteractionPoint: CGPoint
     /// Size of the canvas which to draw the grid on.
     private(set) var sSize: CGSize = .zero
     /// The perceived translation of the grid.
     /// - Important: This is not the "camera's" position, this is how the grid has been slid, thus, the values may be the inverse of what is expected.
-    @Binding private(set) var sTranslation: CGPoint
+    private(set) var sTranslation: CGPoint
     /// Spacing between lines at a 1.0 scale.
     public let sLineSpacing: CGFloat
     /// Smallest allowed gap between lines measured in points.
     public let smallestAllowedLineGap: CGFloat
     /// Largest allowed gap between lines measured in points.
     public let largestAllowedLineGap: CGFloat
-    
+
     /// Initializer for the InfiniteCanvas view model, which handles translation, scaling, screen size, and creating the path for the grid.
     /// - Parameters:
     ///   - baseScale: Scale offset. Helpful for when multiple grids are overlaid with eachother.
@@ -55,16 +56,16 @@ public final class InfiniteGridVM: ObservableObject {
     ///   - translation: Binding for the translation OF THE GRID, not the camera.
     ///   - scale: Binding for the scale of the grid.
     ///   - interactionPoint: Binding for the scale interaction point.
-    init(baseScale: CGFloat = 1, smallestAllowedLineGap: CGFloat, largestAllowedLineGap: CGFloat, translation: Binding<CGPoint>, scale: Binding<CGFloat>, interactionPoint: Binding<CGPoint>) {
+    init(baseScale: CGFloat = 1, smallestAllowedLineGap: CGFloat, largestAllowedLineGap: CGFloat, translation: CGPoint, scale: CGFloat, interactionPoint: CGPoint) {
         self.sSize = .zero
-        self._gScale = scale
-        self._sTranslation = translation
-        self._sInteractionPoint = interactionPoint
+        self.gScale = scale
+        self.sTranslation = translation
+        self.sInteractionPoint = interactionPoint
         self.sLineSpacing = 25 * baseScale
         self.smallestAllowedLineGap = smallestAllowedLineGap
         self.largestAllowedLineGap = largestAllowedLineGap
     }
-    
+
     /// Adds to the current translation of the grid.
     /// - Parameter sTranslation: Amount to translate
     public func updateTranslation(newTranslation sTranslation: CGSize) {
