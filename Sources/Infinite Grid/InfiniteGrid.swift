@@ -33,7 +33,7 @@ import SwiftUI
 /// A pre-fab view for the Infinite Canvas that allows for a grid to be drawn to the screen.
 public struct InfiniteGrid: View {
     /// View model for the infinite canvas.
-    @ObservedObject private var controller: InfiniteGridVM
+    private var controller: InfiniteGridVM
     /// The net translation during a drag gesture.
     @State private var previousFrameTranslation: CGSize
     /// The net scale during a magnify gesture.
@@ -50,7 +50,7 @@ public struct InfiniteGrid: View {
     @State var eventHash: Int = .zero
     /// Stores the mouse position (if applicable)
     @State var mousePos: CGPoint
-    
+
     /// A pre-fab view for the Infinite Canvas that allows for a grid to be drawn to the screen.
     /// - Parameters:
     ///   - gridShading: Shading for the grid lines. Default is the primary color
@@ -73,16 +73,13 @@ public struct InfiniteGrid: View {
         interactionPoint: Binding<CGPoint> = .constant(.zero),
         views: [any GridObject] = []
     ) {
-        self._controller = ObservedObject(
-            initialValue:
-                InfiniteGridVM(
-                    baseScale: baseScale,
-                    smallestAllowedLineGap: smallestAllowedLineGap,
-                    largestAllowedLineGap: largestAllowedLineGap,
-                    translation: translation,
-                    scale: scale,
-                    interactionPoint: interactionPoint
-                )
+        self.controller = InfiniteGridVM(
+            baseScale: baseScale,
+            smallestAllowedLineGap: smallestAllowedLineGap,
+            largestAllowedLineGap: largestAllowedLineGap,
+            translation: translation.wrappedValue,
+            scale: scale.wrappedValue,
+            interactionPoint: interactionPoint.wrappedValue
         )
         self._previousFrameTranslation = State(initialValue: .zero)
         self._previousFrameScale = State(initialValue: 1)
@@ -91,7 +88,7 @@ public struct InfiniteGrid: View {
         self.views = views
         self._mousePos = State(initialValue: .zero)
     }
-    
+
     /// Gesture for moving the grid when dragging
     private var gridDrag: some Gesture {
         DragGesture(minimumDistance: 0)
