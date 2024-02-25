@@ -77,9 +77,9 @@ public struct InfiniteGrid: View {
             baseScale: baseScale,
             smallestAllowedLineGap: smallestAllowedLineGap,
             largestAllowedLineGap: largestAllowedLineGap,
-            translation: translation.wrappedValue,
-            scale: scale.wrappedValue,
-            interactionPoint: interactionPoint.wrappedValue
+            translation: translation,
+            scale: scale,
+            interactionPoint: interactionPoint
         )
         self._previousFrameTranslation = State(initialValue: .zero)
         self._previousFrameScale = State(initialValue: 1)

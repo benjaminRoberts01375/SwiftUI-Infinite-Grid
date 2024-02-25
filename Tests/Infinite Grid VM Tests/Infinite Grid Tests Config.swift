@@ -31,9 +31,9 @@ final class InfiniteGridVMTests: XCTestCase {
             baseScale: 1,
             smallestAllowedLineGap: 1,
             largestAllowedLineGap: 100000,
-            translation: self.translation,
-            scale: self.scale,
-            interactionPoint: self.interactionPoint
+            translation: Binding<CGPoint>(get: { self.translation }, set: { self.translation = $0 }),
+            scale: Binding<CGFloat>(get: { self.scale }, set: { self.scale = $0 }),
+            interactionPoint: Binding<CGPoint>(get: { self.interactionPoint }, set: { self.interactionPoint = $0 })
         )
         defaultGridObject.setScreenSize(defaultScreenSize)
     }

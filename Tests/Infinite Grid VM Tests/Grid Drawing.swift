@@ -86,15 +86,15 @@ extension InfiniteGridVMTests {
     }
     
     func testForceZeroScale() {
-        let translation: CGPoint = .zero
-        let interactionPoint: CGPoint = .zero
+        var translation: CGPoint = .zero
+        var interactionPoint: CGPoint = .zero
         let gridObject = InfiniteGridVM(
             baseScale: 1,
             smallestAllowedLineGap: 1,
             largestAllowedLineGap: 100000,
-            translation: translation,
-            scale: .zero,
-            interactionPoint: interactionPoint
+            translation: Binding<CGPoint>(get: { translation }, set: { translation = $0 }),
+            scale: .constant(.zero),
+            interactionPoint: Binding<CGPoint>(get: { interactionPoint }, set: { interactionPoint = $0 })
         )
         gridObject.setScreenSize(defaultScreenSize)
         let path = gridObject.drawGrid()
@@ -109,9 +109,9 @@ extension InfiniteGridVMTests {
             baseScale: 1,
             smallestAllowedLineGap: 1,
             largestAllowedLineGap: 100000,
-            translation: .zero,
-            scale: scale,
-            interactionPoint: interactionPoint
+            translation: .constant(.zero),
+            scale: Binding<CGFloat>(get: { scale }, set: { scale = $0 }),
+            interactionPoint: Binding<CGPoint>(get: { interactionPoint }, set: { interactionPoint = $0 })
         )
         gridObject.setScreenSize(defaultScreenSize)
         gridObject.updateScale(newScale: 2, sInteractionPoint: interactionPoint)
